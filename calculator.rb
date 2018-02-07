@@ -1,4 +1,4 @@
-##### START INITIAL ARRAY #####
+##### START INITIAL HASHES #####
 
 # store operation, num_1, and num_2 after entry by user
 # important note - sometimes num_1 and num_2 are stored with revised formatting, but sometimes they are not
@@ -10,7 +10,7 @@ valid_operators = {:+ =>["add", "addition", "+"], :- =>["subtract", "subtraction
 # wip: valid operations for exponential functions and modular functions
 # :** =>["exponent", "exponents", "^", "**"], :% =>["modulo", "modular function", "modularfunction", "%"]
 
-##### END INITIAL ARRAY #####
+##### END INITIAL HASHES #####
 
 ##### START FUNCTIONS #####
 
