@@ -1,5 +1,4 @@
 # Define operators supported
-
 operators = [
   "add","+","subtract","-","multiply",
   "*","divide","/","^","%"
