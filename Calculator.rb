@@ -27,7 +27,8 @@ or division - it'll be like a choose your own adventure, math style!"
 puts "What number would you like to operate on?"
 num1 = gets.chomp
 
-# Checks to ensure user input is either float or integer, if not requires new input
+# Checks to ensure user input is either float or integer
+# if not requires new input
 until num1.match(/^\d*\.?\d+$/) && !num1.empty?
   puts "Oops! That's not a valid number - please enter a number."
   num1 = gets.chomp
@@ -46,7 +47,8 @@ operation = gets.chomp
 
 # ensures only responses that match the available math operations are accepted
 until math_functions.include? (operation)
-  puts "Oops! That's not an operation I can process. Try +, subtract, mulitply, /, etc."
+  puts "Oops! That's not an operation I can process. Try +, subtract, mulitply,
+  /, etc."
   operation = gets.chomp
 end
 
@@ -63,7 +65,8 @@ else
   num2 = num2.to_f
 end
 
-# Check to ensure that mathematical equation will not throw error code and loop until num2 isn't combined with divide or /
+# Check to ensure that mathematical equation will not throw error code and loop 
+# until num2 isn't combined with divide or /
 until !(num2 == 0 && operation == ("/" || "divide"))
   puts "Uh-oh! You can't divide by 0! Please enter a new second number."
   num2 = gets.chomp.to_f
