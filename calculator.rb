@@ -36,16 +36,16 @@ end
 puts "Here is the result: "
 case user_operation
   when "add", "+"
-    puts first_integer + second_integer
+    puts "#{first_integer} + #{second_integer} = #{first_integer + second_integer}"
   when "subtract", "-"
-    puts first_integer - second_integer
+    puts "#{first_integer} - #{second_integer} = #{first_integer - second_integer}"
   when "multiply", "*"
-    puts first_integer * second_integer
+    puts "#{first_integer} * #{second_integer} = #{first_integer * second_integer}"
   when
     if second_integer == 0
       puts "For division, the second integer cannot be 0."
     else
-      puts first_integer / second_integer
+      puts "#{first_integer} / #{second_integer} = #{first_integer / second_integer}"
     end
 end
 puts "Thank you for using the Calculator program."
