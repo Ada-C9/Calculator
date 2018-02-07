@@ -1,5 +1,5 @@
 # List of operations supported by the program
-operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^"]
+operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^", "%"]
 
 # Welcome message and instruction
 puts "Welcome to the calculator program. What operation do you want to do? Please choose one from the following list: "
@@ -49,5 +49,7 @@ case user_operation
     end
   when "^"
     puts "#{first_integer}^#{second_integer} = #{first_integer ** second_integer}"
+  when "%"
+    puts "#{first_integer} % #{second_integer} = #{first_integer % second_integer}"
 end
 puts "Thank you for using the Calculator program."
