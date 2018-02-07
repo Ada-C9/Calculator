@@ -28,63 +28,83 @@ operators = [
   "add","+","subtract","-","multiply","*", "divide","/", "power of",
   "^", "exponent"
 ]
-# User imput examples
+# User imput examples for future program
 # add 3 to 4
 # add 3 + 4
 # 3 + 4
 
 puts "Welcome to the calculator! How can I help you?"
-# input = gets.chomp
-# if input includes "add or +" find the numbers and do addition
 
-print "Would you like to add(+), subtract(-), multiply(*), divide(/), or "
-print "two numbers? You can also find the power of/exponent(^) of a number? "
-operator = gets.chomp.downcase
+quit = false
 
-# checks that operator exsists in the program
-while !operators.include?(operator)
-  puts "That is not an operation the calculator supports."
-  print "Please choose add(+), subtract(-), multiply(*), divide(/), or power of(^): "
+while !quit
+  print "Would you like to add(+), subtract(-), multiply(*), divide(/), or "
+  print "two numbers? You can also find the power of/exponent(^) of a number? "
   operator = gets.chomp.downcase
-end
 
-# asks for the first number
-print "Please give me the first number: "
-num1 = gets.chomp
+  # checks that operator exsists in the program
+  while !operators.include?(operator)
+    puts "That is not an operation the calculator supports."
+    print "Please choose add(+), subtract(-), multiply(*), divide(/), or power of(^): "
+    operator = gets.chomp.downcase
+  end
 
-while !num1.numeric?
-  print "That is not a number. Please enter a number: "
+  # asks for the first number
+  print "Please give me the first number: "
   num1 = gets.chomp
-end
 
-num1 = num1.to_f
+  while !num1.numeric?
+    print "That is not a number. Please enter a number: "
+    num1 = gets.chomp
+  end
 
-# asks for the second number
-print "Please give me the second number: "
-num2 = gets.chomp
+  num1 = num1.to_f
 
-while !num2.numeric?
-  print "That is not a number. Please enter a number: "
+  # asks for the second number
+  print "Please give me the second number: "
   num2 = gets.chomp
-end
 
-num2 = num2.to_f
+  while !num2.numeric?
+    print "That is not a number. Please enter a number: "
+    num2 = gets.chomp
+  end
 
-if num2 == 0
-  puts "I'm sorry, but I can't divide by 0."
-  puts"Please run the program again to select a new equation."
-  return
-end
+  num2 = num2.to_f
 
-case operator
-when "add", "+"
-  puts "#{num1} + #{num2} = #{add(num1,num2)}"
-when "subtract", "-"
-  puts "#{num1} - #{num2} = #{subtract(num1,num2)}"
-when "multiply", "*"
-  puts "#{num1} * #{num2} = #{multiply(num1,num2)}"
-when "divide", "/"
-  puts "#{num1} / #{num2} = #{divide(num1,num2)}"
-when "power of","^", "exponent"
-  puts "#{num1} ^ #{num2} = #{exponent(num1,num2)}"
+  while num2 == 0
+    puts "Sorry, the calculator can't divide by 0."
+    puts "Please chose another equation or quit."
+    break
+  end
+
+  case operator
+  when "add", "+"
+    puts "#{num1} + #{num2} = #{add(num1,num2)}"
+  when "subtract", "-"
+    puts "#{num1} - #{num2} = #{subtract(num1,num2)}"
+  when "multiply", "*"
+    puts "#{num1} * #{num2} = #{multiply(num1,num2)}"
+  when "divide", "/"
+    puts "#{num1} / #{num2} = #{divide(num1,num2)}"
+  when "power of","^", "exponent"
+    puts "#{num1} ^ #{num2} = #{exponent(num1,num2)}"
+  end
+
+  #  handles quit program process
+  print "Would you like to try another calulation? (y/n) "
+  quit_input = gets.chomp.downcase
+
+  case quit_input
+  when "y", "yes", "yep", "yea"
+    quit = false
+  when "n", "nope", "nah"
+    print "Thank you for using the calculator program! Good bye."
+    quit = true
+  else
+    while !["y", "yes", "yep", "yea", "n", "nope", "nah"].include?(quit_input)
+      print "Would you like to try another calulation? (y/n) "
+      quit_input = gets.chomp.downcase
+    end
+  end
+
 end
