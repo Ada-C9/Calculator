@@ -18,6 +18,10 @@ def exponent(num1,num2)
   return num1 ** num2
 end
 
+def mod(num1,num2)
+  return num1 % num2
+end
+
 class String
   def numeric?
     Float(self) != nil rescue false
@@ -26,7 +30,7 @@ end
 
 operators = [
   "add","+","subtract","-","multiply","*", "divide","/", "power of",
-  "^", "exponent"
+  "^", "exponent", "remainder"
 ]
 # User imput examples for future program
 # add 3 to 4
@@ -38,14 +42,18 @@ puts "Welcome to the calculator! How can I help you?"
 quit = false
 
 while !quit
-  print "Would you like to add(+), subtract(-), multiply(*), divide(/), or "
-  print "two numbers? You can also find the power of/exponent(^) of a number? "
+  print "You can add(+), subtract(-), multiply(*), divide(/), or "
+  print "two numbers. You can also find the power of/exponent(^) of a number or "
+  puts "the remainder when dividing two numbers."
+  print "\nPlease choose add(+), subtract(-), multiply(*), divide(/), "
+  print "power of(^), or remainder: "
   operator = gets.chomp.downcase
 
   # checks that operator exsists in the program
   while !operators.include?(operator)
     puts "That is not an operation the calculator supports."
-    print "Please choose add(+), subtract(-), multiply(*), divide(/), or power of(^): "
+    print "Please choose add(+), subtract(-), multiply(*), divide(/), "
+    print "power of(^), or remainder: "
     operator = gets.chomp.downcase
   end
 
@@ -88,6 +96,8 @@ while !quit
     puts "#{num1} / #{num2} = #{divide(num1,num2)}"
   when "power of","^", "exponent"
     puts "#{num1} ^ #{num2} = #{exponent(num1,num2)}"
+  when "remainder", "%"
+    puts "#{num1} % #{num2} = #{mod(num1,num2)}"
   end
 
   #  handles quit program process
