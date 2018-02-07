@@ -30,7 +30,7 @@ end
 
 operators = [
   "add","+","subtract","-","multiply","*", "divide","/", "power of",
-  "^", "exponent", "remainder"
+  "^", "exponent", "remainder", "%"
 ]
 # User imput examples for future program
 # add 3 to 4
