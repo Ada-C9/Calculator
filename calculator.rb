@@ -91,22 +91,22 @@ end
 # prints out equation based on user's input
 # prints out result
 case user_input
-  when "add", "+"
-    result = add(num1, num2)
-    puts "#{num1} + #{num2} = #{result}"
-  when "subtract", "-"
-    result = subtract(num1, num2)
-    puts "#{num1} - #{num2} = #{result}"
-  when "multiply", "*"
-    result = mutiply(num1, num2)
-    puts "#{num1} * #{num2} = #{result}"
-  when "divide", "/"
-    num2, result = divide(num1, num2)
-    puts "#{num1} / #{num2} = #{result}"
-  when "exponify", "**"
-    result = exponents(num1, num2)
-    puts "#{num1} ^ #{num2} = #{result}"
-  when "remainder", "%"
-    result = remainder(num1, num2)
-    puts "#{num1} % #{num2} = #{result}"
+when "add", "+"
+  result = add(num1, num2)
+  puts "#{num1} + #{num2} = #{result}"
+when "subtract", "-"
+  result = subtract(num1, num2)
+  puts "#{num1} - #{num2} = #{result}"
+when "multiply", "*"
+  result = mutiply(num1, num2)
+  puts "#{num1} * #{num2} = #{result}"
+when "divide", "/"
+  num2, result = divide(num1, num2)
+  puts "#{num1} / #{num2} = #{result}"
+when "exponify", "**"
+  result = exponents(num1, num2)
+  puts "#{num1} ^ #{num2} = #{result}"
+when "remainder", "%"
+  result = remainder(num1, num2)
+  puts "#{num1} % #{num2} = #{result}"
 end
