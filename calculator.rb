@@ -183,4 +183,4 @@ elsif valid_operators[:/].include?(user_input[:operation])
   puts "#{user_input[:num_1]} / #{user_input[:num_2]} = #{result}"
 end
 
-#### END BODY #####
+##### END BODY #####
