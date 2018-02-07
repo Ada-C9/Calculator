@@ -77,4 +77,4 @@ case calculation
       result = div_nums(num_one, num_two)
       puts result
     end
- end
+end
