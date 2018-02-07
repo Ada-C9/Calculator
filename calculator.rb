@@ -17,6 +17,14 @@ end
 def divide (num_one, num_two)
   return num_one / num_two
 end
+#OPTIONAL: method for exponents
+def exponent (num_one, num_two)
+  return num_one ** num_two
+end
+#OPTIONAL: method for modulo
+def modulo (num_one, num_two)
+  return num_one % num_two
+end
 #OPTIONAL: ENSURE IT IS ONLY NUMBERS THAT ARE ENTERED
 def req ()
   num = gets.chomp
@@ -38,15 +46,6 @@ def req ()
     puts 'not integer or float'
   end
 end
-#OPTIONAL: method for exponents
-# def exponent (num_one, num_two)
-#   return num_one ** num_two
-# end
-
-#OPTIONAL: method for modulo
-# def modulo (num_one, num_two)
-#   return num_one % num_two
-# end
 
 #collect first number from the user and run it through req method
 puts "Welcome, seems like you need a calculator.\n\Please Input a number."
@@ -54,9 +53,7 @@ num_1 = req()
 puts "Enter a command."
 # make sure that only operators are accepted
 command_use = gets.chomp
-until ["add", "+", "subtract", "-","multiply", "*", "divide", "/"].include?(command_use)
-  #OPTIONAL: For modulo and exponents
-  # until ["add", "+", "subtract", "-","multiply", "*", "divide", "/", "**", "^", "modulo", "%"].include?(command_use)
+until ["add", "+", "subtract", "-","multiply", "*", "divide", "/", "**", "^", "modulo", "%"].include?(command_use)
   puts "Please put a valid command!"
   command_use = gets.chomp
 end
@@ -83,13 +80,12 @@ when "divide", "/"
   else
     puts "You cannot divide by 0."
   end
-  #OPTIONAL: method for exponents and modulos
-  # when "^", "**"
-  #   puts "We're exponentiating numbers"
-  #   result = exponent(num_1,num_2)
-  #when "modulo", "%"
-  # puts "We are using a modulo for numbers."
-  # results = modulo(num_1,num_2)
+when "^", "**"
+  puts "We're exponentiating numbers"
+  result = exponent(num_1,num_2)
+when "modulo", "%"
+  puts "We are using a modulo for numbers."
+  results = modulo(num_1,num_2)
 else
   puts "That makes no sense. Please tell me which operator you want to use."
   command = gets.chomp
