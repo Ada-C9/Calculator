@@ -51,13 +51,10 @@ elsif type == "float" || type == "floats"
   num_one = gets.chomp.to_f
   print "And number 2: "
   num_two = gets.chomp.to_f
-
 end
 
-puts num_one
-puts num_two
 
-# Calculate
+# Calculate!
 
 case calculation
   when "add", "+", "addition"
@@ -80,4 +77,4 @@ case calculation
       result = div_nums(num_one, num_two)
       puts result
     end
-  end
+ end
