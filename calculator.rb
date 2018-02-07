@@ -1,5 +1,5 @@
 # List of operations supported by the program
-operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/"]
+operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^"]
 
 # Welcome message and instruction
 puts "Welcome to the calculator program. What operation do you want to do? Please choose one from the following list: "
@@ -41,11 +41,13 @@ case user_operation
     puts "#{first_integer} - #{second_integer} = #{first_integer - second_integer}"
   when "multiply", "*"
     puts "#{first_integer} * #{second_integer} = #{first_integer * second_integer}"
-  when
+  when "divide", "/"
     if second_integer == 0
       puts "For division, the divisor cannot be 0."
     else
       puts "#{first_integer} / #{second_integer} = #{first_integer / second_integer}"
     end
+  when "^"
+    puts "#{first_integer}^#{second_integer} = #{first_integer ** second_integer}"
 end
 puts "Thank you for using the Calculator program."
