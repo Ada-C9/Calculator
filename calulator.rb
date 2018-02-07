@@ -70,11 +70,11 @@ end
 
 case operator
 when "add", "+"
-  puts add(num1,num2)
+  puts "#{num1} + #{num2} = #{add(num1,num2)}"
 when "subtract", "-"
-  puts subtract(num1,num2)
+  puts "#{num1} - #{num2} = #{subtract(num1,num2)}"
 when "multiply", "*"
-  puts multiply(num1,num2)
+  puts "#{num1} * #{num2} = #{multiply(num1,num2)}"
 when "divide", "/"
-  puts divide(num1,num2)
+  puts "#{num1} / #{num2} = #{divide(num1,num2)}"
 end
