@@ -22,7 +22,7 @@ end
 def float_or_integer type
   num_input = nil
   if type == "integer"
-    num_input = Integer gets.chomp rescue nil
+    num_input = Integer (Float gets.chomp rescue nil) rescue nil
   elsif type == "float"
     num_input = Float gets.chomp rescue nil
   end
