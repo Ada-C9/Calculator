@@ -1,55 +1,84 @@
 # List of operations supported by the program
 operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^", "%"]
+number_types = ["integer", "float"]
 
 # Welcome message and instruction
 puts "Welcome to the calculator program. What operation do you want to do? Please choose one from the following list: "
 puts operations
 
-# Collect operation choice from user
+# Collect user's choice for operations
 user_operation = gets.chomp
 until operations.include?(user_operation)
   puts "Please make a valid choice: "
   user_operation = gets.chomp
 end
 
-# Collect first number from user
-print "Please provide the first integer: "
-first_integer_string = gets.chomp
-first_integer = first_integer_string.to_i
-until first_integer.to_s == first_integer_string
-  print "This isn't an integer. Please provide a valid integer: "
-  first_integer_string = gets.chomp
-  first_integer = first_integer_string.to_i
+# Let user choose input type
+puts "What type of number are you entering? Please choose one from the following list: "
+puts number_types
+
+# Collect user's choice for number types
+user_number_type = gets.chomp
+until number_types.include?(user_number_type)
+  puts "Please make a valid choice: "
+  user_number_type = gets.chomp
 end
 
-# Collect second number from user
-print "Please provide the second integer: "
-second_integer_string = gets.chomp
-second_integer = second_integer_string.to_i
-until second_integer.to_s == second_integer_string
-  print "This isn't an integer. Please provide a valid integer: "
-  second_integer_string = gets.chomp
-  second_integer = second_integer_string.to_i
+# Helper method to check integer input
+def integer_check
+  integer_string = gets.chomp
+  integer = integer_string.to_i
+  until integer.to_s == integer_string
+    print "This isn't an integer. Please provide a valid input: "
+    integer_string = gets.chomp
+    integer = integer_string.to_i
+  end
+  return integer
+end
+
+def float_check
+  float_string = gets.chomp
+  float = float_string.to_f
+  until float_string.include?(".") && (float.to_s == float_string)
+    print "This isn't a float. Please provide a valid input: "
+    float_string = gets.chomp
+    float = float_string.to_f
+  end
+  return float
+end
+
+# Collect numbers from user
+case user_number_type
+  when "integer"
+    print "Please provide the first integer: "
+    first_number = integer_check
+    print "Please provide the second integer: "
+    second_number = integer_check
+  when "float"
+    print "Please provide the first float: "
+    first_number = float_check
+    print "Please provide the second float: "
+    second_number = float_check
 end
 
 # Calculate and output result
 puts "Here is the result: "
 case user_operation
   when "add", "+"
-    puts "#{first_integer} + #{second_integer} = #{first_integer + second_integer}"
+    puts "#{first_number} + #{second_number} = #{first_number + second_number}"
   when "subtract", "-"
-    puts "#{first_integer} - #{second_integer} = #{first_integer - second_integer}"
+    puts "#{first_number} - #{second_number} = #{first_number - second_number}"
   when "multiply", "*"
-    puts "#{first_integer} * #{second_integer} = #{first_integer * second_integer}"
+    puts "#{first_number} * #{second_number} = #{first_number * second_number}"
   when "divide", "/"
-    if second_integer == 0
+    if second_number == 0
       puts "For division, the divisor cannot be 0."
     else
-      puts "#{first_integer} / #{second_integer} = #{first_integer / second_integer}"
+      puts "#{first_number} / #{second_number} = #{first_number / second_number}"
     end
   when "^"
-    puts "#{first_integer}^#{second_integer} = #{first_integer ** second_integer}"
+    puts "#{first_number}^#{second_number} = #{first_number ** second_number}"
   when "%"
-    puts "#{first_integer} % #{second_integer} = #{first_integer % second_integer}"
+    puts "#{first_number} % #{second_number} = #{first_number % second_number}"
 end
 puts "Thank you for using the Calculator program."
