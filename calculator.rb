@@ -1,28 +1,31 @@
-# List of operations supported by the program
-operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^", "%"]
-number_types = ["integer", "float"]
+# Welcome message
+puts "Welcome to the calculator program."
 
-# Welcome message and instruction
-puts "Welcome to the calculator program. What operation do you want to do? Please choose one from the following list: "
+# Instruction for choosing an operation
+puts "What operation do you want to do? Please choose one from the following list: "
+operations = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "^", "%"]
 puts operations
 
-# Collect user's choice for operations
-user_operation = gets.chomp
-until operations.include?(user_operation)
-  puts "Please make a valid choice: "
-  user_operation = gets.chomp
+# Helper method to check user's choice
+def user_choice_check choices
+  user_choice = gets.chomp
+  until choices.include?(user_choice)
+    puts "Please make a valid choice: "
+    user_choice = gets.chomp
+  end
+  return user_choice
 end
 
-# Let user choose input type
+# Collect user's choice for operations
+user_operation = user_choice_check operations
+
+# Instruction for choosing a number type
 puts "What type of number are you entering? Please choose one from the following list: "
+number_types = ["integer", "float"]
 puts number_types
 
 # Collect user's choice for number types
-user_number_type = gets.chomp
-until number_types.include?(user_number_type)
-  puts "Please make a valid choice: "
-  user_number_type = gets.chomp
-end
+user_number_type = user_choice_check number_types
 
 # Helper method to check integer input
 def integer_check
@@ -36,6 +39,7 @@ def integer_check
   return integer
 end
 
+# Helper method to check float input
 def float_check
   float_string = gets.chomp
   float = float_string.to_f
