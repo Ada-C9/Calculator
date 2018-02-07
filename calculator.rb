@@ -43,7 +43,7 @@ case user_operation
     puts "#{first_integer} * #{second_integer} = #{first_integer * second_integer}"
   when
     if second_integer == 0
-      puts "For division, the second integer cannot be 0."
+      puts "For division, the divisor cannot be 0."
     else
       puts "#{first_integer} / #{second_integer} = #{first_integer / second_integer}"
     end
