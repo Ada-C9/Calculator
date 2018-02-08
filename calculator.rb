@@ -129,7 +129,7 @@ valid_operations = %w[add + addition subtract - subtraction multiply *
     puts "\n"
     puts "The total of this operation is: #{multiplication(first_num, second_num)[0]}"
   when "divide", "/"
-    if first_num <= 0 || second_num <= 0
+    if  second_num == 0
       puts "Cannot perform division with a value <= 0"
     else
       puts "The formula for this operation is: #{division(first_num, second_num)[1]}"
