@@ -55,7 +55,7 @@ puts "Enter the operation you'd like to perform (a string or numeric symbol): "
 user_operation = gets.chomp
 
 puts "Please enter the first number: "
-num1 = gets.chomp
+num1 = gets.chomp.to_f
 
 puts "Please enter the second number: "
-num2 = gets.chomp
+num2 = gets.chomp.to_f
