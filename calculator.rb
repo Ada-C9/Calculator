@@ -95,7 +95,11 @@ case operation
   result = mult(first_num, sec_num)
   puts "We used multiplication and your result is: #{result}"
  when "/", "divide", "division"
+   if first_num == 0 || sec_num == 0
+     puts "Sorry! division by zero is undefined, for it is not consistent with division by other numbers."
+     exit
+   else
   result = div(first_num, sec_num)
   puts "We used division and your result is: #{result}"
- else "Sorry, I don't know that operation."
+end
 end
