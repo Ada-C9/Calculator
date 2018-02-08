@@ -38,7 +38,7 @@ puts "Welcome to your calculator!\n"
 
 puts "I can add, subtract, multiply or divide\n"
 
-puts "What type of calculation you want to do? "
+puts "Please enter the operator you want to use : add, + , subtract, - , multiply, * , divide , / "
 user_input = gets.chomp.downcase
 
 empty?(user_input)
