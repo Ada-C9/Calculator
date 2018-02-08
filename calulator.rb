@@ -79,12 +79,6 @@ while !quit
 
   num2 = num2.to_f
 
-  while num2 == 0
-    puts "Sorry, the calculator can't divide by 0."
-    puts "Please chose another equation or quit."
-    break
-  end
-
   case operator
   when "add", "+"
     puts "#{num1} + #{num2} = #{add(num1,num2)}"
@@ -93,6 +87,11 @@ while !quit
   when "multiply", "*"
     puts "#{num1} * #{num2} = #{multiply(num1,num2)}"
   when "divide", "/"
+    while num2 == 0
+      puts "Sorry, the calculator can't divide by 0."
+      puts "Please chose another equation or quit."
+      break
+    end
     puts "#{num1} / #{num2} = #{divide(num1,num2)}"
   when "power of","^", "exponent"
     puts "#{num1} ^ #{num2} = #{exponent(num1,num2)}"
