@@ -57,10 +57,13 @@ loop do
   case operator
   when "add", "+"
     puts addition(num_1.to_f, num_2.to_f)
+    break
   when "subtract", "-"
     puts subtraction(num_1.to_f, num_2.to_f)
+    break
   when "multiply", "*"
     puts multiplication(num_1.to_f, num_2.to_f)
+    break
   when "divide", "/"
     puts division(num_1.to_f, num_2.to_f)
     break
