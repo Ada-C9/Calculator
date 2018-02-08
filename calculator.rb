@@ -4,9 +4,12 @@
 # p calculate_division
 
 # p calculate_exponential
+# first_number = []
+# second_number = []
 
+calculator_options = %w[add + subtract - multiply * divide / exponent **]
 
-calculator_options = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "exponent", "**"]
+# calculator_options = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "exponent", "**"]
 def addition(num_one, num_two)
   return num_one + num_two
 end
@@ -43,7 +46,13 @@ num_one = gets.chomp
 puts "\nWhat is the second number?"
 num_two = gets.chomp
 
+# first_number << num_one
+# second_number << num_two
+
 puts ""
+# Integer check
+
+# while num_one.integer? && num_two.integer?
 
 case option
   when "add", "+"
@@ -59,10 +68,15 @@ case option
       p calculate_multiplication_f
 
   when "divide", "/"
+    if num_two == "0"
+       puts "Does Not Exist"
+    else
     calculate_division_f = division(num_one.to_f, num_two.to_f)
       p calculate_division_f
+    end
 
   when "exponent", "**"
     calculate_exponential_f = exponential(num_one.to_f, num_two.to_f)
       p calculate_exponential_f
 end
+# end
