@@ -43,9 +43,9 @@ end
 # Method for determining if a number is float or integer
 def number_type a
   if a.include?(".")
-    return a.to_f
+    return a.to_f.round(2)
   else
-    return a.to_i
+    return a.to_i.round(2)
   end
 end
 
