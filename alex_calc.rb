@@ -4,7 +4,7 @@ operators_list = %w(add + subtract - multiply * divide /)
 
 # methods
 def validate_operator(operator, operators_list)
-  until operators_list.include?(operator)
+  while !(operators_list.include?(operator))
     print "Please enter an operator word or symbol (i.e. add, +, *): "
     operator = gets.chomp
   end
@@ -65,7 +65,7 @@ end
 puts "This is a simple calculator program...\n"
 print "\nEnter an operator: "
 operator = gets.chomp
-validate_operator(operator, operators_list)
+operator = validate_operator(operator, operators_list)
 
 print "Enter a number: "
 first_num = gets.chomp
