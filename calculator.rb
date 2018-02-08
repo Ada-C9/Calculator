@@ -22,11 +22,11 @@ def mod(num1,num2)
   return num1 % num2
 end
 
-class String
+
   def numeric?
     Float(self) != nil rescue false
   end
-end
+
 
 operators = [
   "add","+","subtract","-","multiply","*", "divide","/", "power of",
