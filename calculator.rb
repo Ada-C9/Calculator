@@ -12,8 +12,8 @@ answer = gets.chomp.downcase
 while answer == "yes" do
   # first number
   print "\n#1 Number: "
-  until (num_1 = gets.chomp) =~ /^\d*\.?\d+$/
-    # /^(\d*\.?\d+|\d{1,3}(,\d{3})*(\.\d+)?)$/
+  until (num_1 = gets.chomp) =~ /^\d*\.?\d+$/ 
+#starting of line, any digit(zero or more), including periods, following any digit(zero or more), ending of string.
     puts "\nInvalid input. Please enter a number: "
   end
   num_1 = num_1.to_f
