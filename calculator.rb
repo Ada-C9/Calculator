@@ -27,16 +27,19 @@ _____________________
 ".bold
 
 # Prompt user
-puts "Enter command: add, +, subtract, -, multiply, *, divide, /, exponify, **, modulo, %, parentheticals, ()
-.".bold.blue
+puts "Enter command: add, +, subtract, -, multiply, *, divide, /, exponify, **, modulo, %.".bold.blue
 command = gets.chomp
 
-commands = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "exponify", "**", "modulo", "%","parentheticals", "()"]
+commands = ["add", "+", "subtract", "-", "multiply", "*", "divide", "/", "exponify", "**", "modulo", "%"]
 # Keep on asking user until they put right command
+attempts = 0
 until commands.include?(command)
+  attempts += 1
+  if attempts > 2
+    exit
+  end
   puts "Invalid Entry!".bold.red
-  puts "Enter command: add, +, subtract, -, multiply, *, divide, /, exponify, **, modulo, %, parentheticals, ()
-  .".bold.blue
+  puts "Enter command: add, +, subtract, -, multiply, *, divide, /, exponify, **, modulo, %.".bold.blue
   command = gets.chomp
 end
 
@@ -45,14 +48,14 @@ def number_type a
   if a.include?(".")
     return a.to_f.round(2)
   else
-    return a.to_i.round(2)
+    return a.to_i
   end
 end
 
 # Method for determining if a number is float or integer
 def number_type b
   if b.include?(".")
-    return b.to_f
+    return b.to_f.round(2)
   else
     return b.to_i
   end
@@ -61,7 +64,12 @@ end
 # Until user enters a float or integer it'll keep prompting
 puts "Enter first number"
 a = gets.chomp
-until a =~ /^\d*\.?\d*$/
+attempts = 0
+until a =~ /^[-+]?[0-9]*\.?[0-9]+$/
+  attempts += 1
+  if attempts > 2
+    exit
+  end
   puts "Invalid Entry!".bold.red
   puts "Enter first number"
   a = gets.chomp
@@ -71,7 +79,12 @@ a = number_type a
 # Until user enters a float or integer it'll keep prompting
 puts "Enter second number"
 b = gets.chomp
-until b =~ /^\d*\.?\d*$/
+attempts = 0
+until b =~ /^[-+]?[0-9]*\.?[0-9]+$/
+  attempts += 1
+  if attempts > 2
+    exit
+  end
   puts "Invalid Entry!".bold.red
   puts "Enter second number"
   b = gets.chomp
@@ -97,26 +110,19 @@ def exponify a, b
   return "a ^ b = #{display_exponify a, b}#{a**b}"
 end
 
-# Method to return parentheticals
-def parentheticals a, b
-  b = b + b
-  return "a / (b + b) = #{a / b}"
-end
 
 # Display result based on command user chooses
 case command
 when "add", "+"
-  puts "a + b = #{a+b}"
+  puts "a + b = #{(a+b).round(2)}"
 when "subtract", "-"
-  puts "a - b = #{a-b}"
+  puts "a - b = #{(a-b).round(2)}"
 when "multiply", "*"
-  puts "a * b = #{a*b}"
+  puts "a * b = #{(a*b).round(2)}"
 when "divide", "/"
   puts divide a, b
 when "exponify", "**"
   puts exponify a, b
 when "modulo", "%"
-  puts "a % b = #{a%b}"
-when "parentheticals", "()"
-  puts parentheticals a, b
+  puts "a % b = #{(a%b).round(2)}"
 end
